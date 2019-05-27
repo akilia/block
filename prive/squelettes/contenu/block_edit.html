@@ -1,0 +1,36 @@
+[(#ID_BLOCK|oui)
+	[(#AUTORISER{modifier,block,#ID_BLOCK}|sinon_interdire_acces)]
+	[(#SET{id_parent,#INFO_ID_PARENT{block,#ID_BLOCK}})]
+]
+
+
+[(#ID_BLOCK|non)
+	[(#AUTORISER{creer,block}|sinon_interdire_acces)]
+]
+
+#SET{redirect,#ENV{redirect}|sinon{#ENV{lier_trad,#ID_BLOCK}|?{#ENV{lier_trad,#ID_BLOCK}|generer_url_entite{block},#URL_ECRIRE{blocks}}}}
+
+
+
+<div class="cadre-formulaire-editer">
+<div class="entete-formulaire">
+	[(#ID_BLOCK|oui)
+	[(#GET{redirect}|icone_verticale{<:icone_retour:>,block,'',left retour[(#ENV{retourajax,''}|oui)ajax preload]})]
+	]
+	[
+		[(#ID_BLOCK|?{<:block:icone_modifier_block:>,<:block:icone_creer_block:>})]
+		<h1>(#ENV{titre,#INFO_TITRE{block,#ID_BLOCK}|sinon{<:info_sans_titre:>}})</h1>
+	]
+</div>
+
+#SET{redirect,#ENV{redirect,#ID_BLOCK|generer_url_entite{block}}}
+[(#ENV{retourajax,''}|oui)
+	#SET{redirect,'javascript:if (window.jQuery) jQuery(".entete-formulaire .retour a").followLink();'}
+	<div class="ajax">
+]
+		[(#FORMULAIRE_EDITER_BLOCK{#ENV{id_block,oui}, #GET{redirect}, #ENV{associer_objet}, #ENV{lier_trad}})]
+[(#ENV{retourajax,''}|oui)
+	</div>
+	<script type="text/javascript">/*<!\[CDATA\[*/reloadExecPage('#ENV{exec}');/*\]\]>*/</script>
+]
+</div>

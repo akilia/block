@@ -1,0 +1,33 @@
+[(#REM)  attribut accept -> les types mimes courants : application/pdf | image/gif,image/jpeg,image/jpg,image/png]
+#SET{name,#ENV{nom_input}}
+
+<B_pdf_joint>
+<BOUCLE_pdf_joint(DOCUMENTS documents_liens){id_objet?}{objet?}{role?}{tous}>
+<div class="media">
+	<div class="editer">
+		<label style>#ENV{label}</label>
+		<div style='float:left; padding-right:30px'>
+			<a href="#URL_DOCUMENT"><img class="media-object" src="#URL_DOCUMENT" alt="#EXTENSION" style="min-width:60px"></a>
+		</div>
+		<div>[<a id="changer_#GET{name}" href="">changer</a>]</div>
+		<div id='#GET{name}'>
+			[(#SAISIE{fichiers, #GET{name}, mime=#ENV{mime}})]
+		</div>
+	</div>
+</div>
+</BOUCLE_pdf_joint>
+</B_pdf_joint>
+	[(#SAISIE{fichiers, #GET{name}, label=#ENV{label}, mime=#ENV{mime}})]
+<//B_pdf_joint>
+
+<script type="text/javascript">
+(function($){
+	$(document).ready(function(){
+		$('##GET{name}').hide()
+		$('#changer_#GET{name}').on('click', function(e){
+			e.preventDefault();
+			$('##GET{name}').toggle();
+		});
+	});
+})(jQuery);
+</script>

@@ -1,0 +1,8 @@
+#FORMULAIRE_RECHERCHE_ECRIRE{#SELF,ajax}
+<div class="nettoyeur"></div>
+
+<INCLURE{fond=prive/objets/liste/blocks, env, ajax, sinon=<:block:info_aucun_block:>}>
+
+[(#AUTORISER{creer,block})
+	[(#URL_ECRIRE{block_edit,new=oui}|icone_verticale{<:block:icone_creer_block:>,block,new,right})]
+]

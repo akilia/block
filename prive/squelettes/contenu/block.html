@@ -1,0 +1,49 @@
+[(#AUTORISER{voir,block,#ID_BLOCK}|sinon_interdire_acces)]
+[(#SET{url_voir,#VAL{block}|objet_info{url_voir}})]
+[(#SET{url_edit,#VAL{block}|objet_info{url_edit}})]
+<BOUCLE_block(BLOCKS){id_block}{statut==.*}{si #ENV{exec}|=={#GET{url_voir}}}>
+[(#BOITE_OUVRIR{[
+	[(#AUTORISER{modifier,block,#ID_BLOCK})
+		[(#ID_BLOCK|afficher_qui_edite{block}|non)
+			[(#URL_ECRIRE{#GET{url_edit},id_block=#ID_BLOCK}|icone_verticale{<:block:icone_modifier_block:>,block,edit,right ajax preload})]
+		]
+		[(#ID_BLOCK|afficher_qui_edite{block}|oui)
+			[(#URL_ECRIRE{#GET{url_edit},id_block=#ID_BLOCK}|icone_verticale{#ID_BLOCK|afficher_qui_edite{block},warning-24,'',right edition_deja ajax preload})]
+		]
+	]
+
+	<h1>(#TITRE|sinon{<:info_sans_titre:>})[(#CHEMIN_IMAGE{block-24.png}|balise_img{block,cadre-icone})]</h1>
+
+],simple fiche_objet})]
+
+<div class="ajax">
+	#FORMULAIRE_DATER{block,#ID_BLOCK}
+</div>
+
+
+<div id="wysiwyg">
+<INCLURE{fond=prive/objets/contenu/block,id=#ID_BLOCK,id_block=#ID_BLOCK,virtuel=oui,ajax=wysiwyg,wysiwyg=1}>
+</div>
+
+<!--affiche_milieu-->
+
+<div class="nettoyeur"></div>
+
+
+#PIPELINE{afficher_complement_objet,#ARRAY{args,#ARRAY{type,block,id,#ID_BLOCK},data,'<div class="nettoyeur"></div>'}}
+
+#BOITE_FERMER
+
+
+#SET{enfants,''}
+[(#VAL{prive/objets/contenu/block-enfants}|trouver_fond|oui)
+	[(#SET{enfants,[(#INCLURE{fond=prive/objets/contenu/block-enfants,id_block,env})]})]
+]
+[(#PIPELINE{affiche_enfants,[(#ARRAY{args,#ARRAY{exec,block,id_block,#ID_BLOCK,objet,block,id_objet,#ID_BLOCK},data,#GET{enfants}})]})]
+
+[(#EVAL{_AJAX}|oui)
+	<script type="text/javascript">/*<!\\[CDATA\\[*/reloadExecPage('#ENV{exec}','#navigation,#chemin,#extra');/*\\]\\]>*/</script>
+]
+</BOUCLE_block>
+[(#ENV**{exec}|=={#GET{url_edit}}|?{#INCLURE{fond=prive/squelettes/contenu/#GET{url_edit},redirect='',env,retourajax=oui},#REM|sinon_interdire_acces})]
+<//B_block>

@@ -1,0 +1,14 @@
+<BOUCLE_listing_icones(BLOCKS){id_block}>
+[<(#BLOCK_ELEMENT)[ id="(#BLOCK_ID)"] class="#BLOCK_CLASS">]
+	<div[ class="(#CONTAINER_CLASS)"]>
+		<h2>#TITRE</h2>
+		[<div>(#TEXTE)</div>]
+		[<a href="#BOUTON_URL" class="btn">(#BOUTON_TITRE)</a>]
+		[(#ENFANTS|=={on}|oui)
+		<div>
+			<INCLURE{fond=content/inc-blocks-enfants, env, objet=rubrique, id_parent=#ID_BLOCK}>
+		</div>
+		]
+	</div>
+[</(#BLOCK_ELEMENT)>]
+</BOUCLE_listing_icones>

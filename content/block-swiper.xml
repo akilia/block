@@ -1,0 +1,7 @@
+<composition>
+	<nom>Block Swiper</nom>
+	<description>Composition block Swiper</description>
+	<icon>images/objet-cours.png</icon>
+	<configuration>fieldset_bouton:non</configuration>
+	<branche type="block" composition="slide" />
+</composition>

@@ -1,0 +1,73 @@
+<div class='formulaire_spip formulaire_editer formulaire_#FORM formulaire_#FORM-#ENV{id_block,nouveau}'>
+	[<p class="reponse_formulaire reponse_formulaire_ok">(#ENV**{message_ok})</p>]
+	[<p class="reponse_formulaire reponse_formulaire_erreur">(#ENV*{message_erreur})</p>]
+
+	[(#ENV{editable})
+	<form method="post" action="#ENV{action}" enctype="multipart/form-data"><div>
+		#ACTION_FORMULAIRE{#ENV{action}}
+		<input type="hidden" name="id_block" value="#ENV{id_block}" />
+		<input type="hidden" name="compo" value="#ENV{compo}" />
+
+		[(#AUTORISER{webmestre}|oui)
+			<fieldset>
+				<legend><:block:legende_config_block:></legend>
+				<div class="editer-groupe">
+					[(#SAISIE{selection, block_element, label=<:block:champ_block_element_label:>, 
+						datas=[(#ARRAY{section,Section,article,Article,div,Div,main,Main,header,Header,footer,Footer,aside,Aside})],
+						defaut=div, explication=<:block:champ_block_element_explication:>})]
+
+					[(#SAISIE{input, block_id, label=<:block:champ_block_id_label:>})]
+					[(#SAISIE{input, block_class, label=<:block:champ_block_class_label:>})]
+				</div>
+			</fieldset>
+
+			<fieldset>
+				<legend><:block:legende_layout:></legend>
+				<div class="editer-groupe">
+					[(#SAISIE{input, container_class, label=<:block:champ_container_class_label:>, defaut='container'})]
+				</div>
+			</fieldset>
+
+			<fieldset>
+				<legend><:block:legende_enfants:></legend>
+				<div class="editer-groupe">
+					[(#SAISIE{oui_non, enfants, label=<:block:champ_enfants_label:>})]
+				</div>
+			</fieldset>
+			<div class="editer-groupe">
+				<hr class='spip'>
+			</div>
+		]
+		
+		<div class="editer-groupe">
+
+			<INCLURE{fond=formulaires/inc-doc_joint,env, nom_input=logo, role=logo, label=<:block:champ_logo_label:>, mime='image_web', objet=block, id_objet=#ID_BLOCK}>
+
+			[(#SAISIE{input, titre, obligatoire=oui, label=<:block:champ_titre_label:>})]
+			<div class="gauche" style='margin:-10px 0 1em; padding-left: 140px;'>
+				<input  type="checkbox" name="masquer_titre\[\]" class="checkbox" id="champ_masquer_titre" [(#ENV{masquer_titre}|=={oui}|oui)checked="checked"] value="#ENV{masquer_titre}" /><label for='champ_masquer_titre' style='padding-left:5px;'>Masquer le titre dans l'espace publique</label>
+			</div>
+
+
+			[(#SAISIE{input, soustitre, label=<:block:champ_soustitre_label:>})]
+
+			[(#SAISIE{textarea, texte, label=<:block:champ_texte_label:>,
+				conteneur_class=pleine_largeur, class=inserer_barre_forum, rows=10})]
+		</div>
+		
+		[(#COMPO|composition_configuration{'block'}|table_valeur{fieldset_bouton}|!={non}|oui)
+			<fieldset>
+				<legend><:block:legende_ajout_bouton:></legend>
+				<div class="editer-groupe">
+					[(#SAISIE{input, bouton_titre, label=<:block:champ_bouton_titre_label:>})]
+					[(#SAISIE{input, bouton_lien, label=<:block:champ_bouton_lien_label:>})]
+				</div>
+			</fieldset>
+		]
+
+		[(#REM) ajouter les saisies supplementaires : extra et autre, a cet endroit ]
+		<!--extra-->
+		<p class="boutons"><input type="submit" class="submit" value="<:bouton_enregistrer:>" /></p>
+	</div></form>
+	]
+</div>

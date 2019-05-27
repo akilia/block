@@ -1,0 +1,28 @@
+[(#SET{defaut_tri,#ARRAY{
+	titre,1,
+	id_block,1,
+	points,-1
+}})]<B_liste_blocks>
+#ANCRE_PAGINATION
+<div class="liste-objets blocks">
+<table class="spip liste">
+	[<caption><strong class="caption">(#ENV*{titre,#GRAND_TOTAL|singulier_ou_pluriel{block:info_1_block,block:info_nb_blocks}})</strong></caption>]
+	<tbody>
+	<BOUCLE_liste_blocks(BLOCKS){id_block?}{id_parent?}{id_mot?}{id_auteur?}{where?}{statut?}{recherche?}{tri #ENV{par,num titre},#GET{defaut_tri}}{par titre}{pagination #ENV{nb,10}}>
+		<tr class="[(#COMPTEUR_BOUCLE|alterner{row_odd,row_even})]">
+			<td class="statut">[(#STATUT|puce_statut{block,#ID_BLOCK})]</td> 
+			<td class="titre principale"[(#LOGO_BLOCK_NORMAL|non)colspan='2']><a href="[(#ID_BLOCK|generer_url_entite{block})]">#TITRE</a></td>
+			[<td class='logo'>(#LOGO_BLOCK_NORMAL|image_reduire{60,40})</td>]
+			<td class="id">[(#AUTORISER{modifier,block,#ID_BLOCK}|?{
+				<a href="[(#URL_ECRIRE{block_edit,id_block=#ID_BLOCK})]">[(#CHEMIN_IMAGE{edit-16.png}|balise_img)]</a>,
+				#ID_BLOCK
+			})]</td>
+		</tr>
+	</BOUCLE_liste_blocks>
+	</tbody>
+</table>
+[<p class="pagination">(#PAGINATION{prive})</p>]
+</div>
+</B_liste_blocks>[
+<div class="liste-objets blocks caption-wrap"><strong class="caption">(#ENV*{sinon,''})</strong></div>
+]<//B_liste_blocks>

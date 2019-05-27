@@ -1,0 +1,18 @@
+<BOUCLE_block(BLOCKS){id_block}{statut?}>
+
+
+[<div class="champ contenu_soustitre[ (#SOUSTITRE*|strlen|?{'',vide})]">
+	<label><:block:champ_soustitre_label:> : </label>
+	<span dir="#LANG_DIR" class="#EDIT{soustitre} soustitre">(#SOUSTITRE)</span>
+</div>]
+
+[<div class="champ contenu_texte[ (#TEXTE*|strlen|?{'',vide})]">
+	<span dir="#LANG_DIR" class="#EDIT{texte} texte">(#TEXTE)</span>
+</div>]
+
+[<div class="champ contenu_bouton_titre[ (#BOUTON_TITRE*|strlen|?{'',vide})]">
+	<b>Bouton</b> : 
+	<a href="#BOUTON_LIEN"><strong>(#BOUTON_TITRE)</strong></a>
+</div>]
+
+</BOUCLE_block>

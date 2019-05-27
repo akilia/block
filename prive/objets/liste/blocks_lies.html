@@ -1,0 +1,47 @@
+#SET{selection,#ENV{objet_source}|lister_blocks_lies{#ENV{objet},#ENV{id_objet},#ENV{_objet_lien}}}
+#SET{debut,#ENV{debutblockl,#EVAL{_request("debutblockl");}}}
+<input type="hidden" name="debutablockl" value="#GET{debut}" />
+#SET{ordonne,''}#SET{last,''}
+<B_liste_blocks>
+[(#REM) En cas de pagination indirecte @32, il faut refaire le set car la boucle
+a mis a jour la valeur avec la page reelle]
+#SET{debut,#ENV{debutblockl,#EVAL{_request("debutblockl");}}}
+#ANCRE_PAGINATION
+<div class="liste-objets liste-objets-lies blocks" data-lien="#ENV{objet}/#ENV{id_objet}">
+	<table class="spip liste">
+	[<caption><strong class="caption">(#ENV*{titre,#GRAND_TOTAL|singulier_ou_pluriel{block:info_1_block,block:info_nb_blocks}})</strong></caption>]
+		<tbody>
+		<BOUCLE_liste_blocks(BLOCKS){tout}{objet=#ENV{objet}}{id_objet=#ENV{id_objet}}{id_block IN #GET{selection}}{par rang_lien,multi titre}{statut?}{pagination #ENV{nb,10} blockl}>
+			<tr class="[(#COMPTEUR_BOUCLE|alterner{row_odd,row_even})][ (#EXPOSE|unique)][ (#TITRE**|extraire_multi|initiale|=={#ENV{i}}|?{on}|unique)][(#ID_BLOCK|=={#ENV{id_lien_ajoute}}|oui)append]" data-lien="block/#ID_BLOCK" data-rang="#RANG_LIEN">
+				#SET{rang,#RANG_LIEN}#SET{last,#ID_BLOCK}
+				<td class='rang' style="padding: 0;">
+					[(#GET{rang}|oui)#SET{ordonne,' '}
+					<button type="submit" name="ordonner_lien\[block-#ID_BLOCK-#ENV{objet}-#ENV{id_objet}\]" value="[(#GET{rang}|moins{1})]" style="padding: 0"
+					>[(#GET{rang}|>{1}|?{&uarr;,'#'})]</button>]
+				</td>
+				<td class="statut">[(#STATUT|puce_statut{block})]</td> 
+				<td class="titre"[(#LOGO_BLOCK_NORMAL|non)colspan='2']><a href="[(#ID_BLOCK|generer_url_entite{block})]">[(#GET{rang}|?{#GET{rang}}). ]#TITRE[ ((#ID_BLOCK|lien_compter) sous-blocs)]</a></td>
+				[<td class='logo'>(#LOGO_BLOCK_NORMAL|image_reduire{60,40})</td>]
+				<td class="action">
+					[(#ENV{editable}|oui)
+						<button type="submit" class="button link delete" name="supprimer_lien\[block-#ID_BLOCK-#OBJET-#ID_OBJET\]" value="X"><:block:retirer_lien_block:> [(#CHEMIN_IMAGE{supprimer-12.png}|balise_img{'X'})]</button>
+					]
+				</td>
+			</tr>
+		</BOUCLE_liste_blocks>
+		</tbody>
+	</table>
+	[<p class="pagination">(#PAGINATION{prive})</p>]
+	<div class="action" style="overflow: hidden">
+		[(#GET{ordonne}|oui)
+		<button type="submit" class="button link" name="desordonner_liens" value="X" style="float: left"><:blocks:lien_tout_desordonner:></button>]
+		[(#GET{ordonne}|non|et{#GRAND_TOTAL|>{1}})
+		<button type="submit" class="button link" name="ordonner_lien\[block-#GET{last}-#ENV{objet}-#ENV{id_objet}\]" value="999999" style="float: left"><:blocks:lien_ordonner:></button>]
+		[(#GRAND_TOTAL|>{3}|oui)<div class="action"><button type="submit" class="button link" name="supprimer_lien\[block-*-#OBJET-#ID_OBJET\]" value="X"><:blocks:retirer_tous_liens_blocks:> [(#CHEMIN_IMAGE{supprimer-8.png}|balise_img{'X'})]</button>]
+	</div>
+</div>
+</B_liste_blocks>
+<div class="liste-objets liste-objets-lies blocks caption-wrap">
+	<strong class="caption">[(#ENV*{titre,<:block:info_aucun_block:>})]</strong>
+</div>
+<//B_liste_blocks>

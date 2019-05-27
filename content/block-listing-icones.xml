@@ -1,0 +1,7 @@
+<composition>
+	<nom>Block Listing d'icones</nom>
+	<description>Composition block Listing d'icônes</description>
+	<icon>images/objet-liste-contenus.png</icon>
+	<configuration>fieldset_bouton:non</configuration>
+	<branche type="block" composition="icone" />
+</composition>

@@ -1,0 +1,44 @@
+<paquet
+	prefix="blocks"
+	categorie="divers"
+	version="0.1.0"
+	etat="dev"
+	compatibilite="[3.2.1;3.3.*]"
+	logo="prive/themes/spip/images/blocks-64.png"
+	documentation=""
+	schema="1.0.0" 
+>
+	<!--
+		Paquet généré le 2019-04-16 12:36:02
+	-->
+
+	<nom>Blocks</nom>
+	<!-- Objet éditorial souple et générique lié à une composition HTML et CSS -->
+
+	<auteur lien='https://www.akilia.net'>Pierre Miquel</auteur>
+
+	<licence>GNU/GPL</licence>
+	<necessite nom="saisies" compatibilite="[3.18.10;]" />
+	<utilise nom="composition" compatibilite="[3.7.4;]" />
+	<necessite nom="cvtupload" compatibilite="[1.16.0;]" />
+	<necessite nom="roles_documents" compatibilite="[1.2.23;]" />
+
+
+	<pipeline nom="autoriser" inclure="blocks_autorisations.php" /> 
+
+	<pipeline nom="declarer_tables_objets_sql" inclure="base/blocks.php" /> 
+	<pipeline nom="declarer_tables_interfaces" inclure="base/blocks.php" /> 
+	<pipeline nom="declarer_tables_auxiliaires" inclure="base/blocks.php" /> 
+	<pipeline nom="affiche_milieu" inclure="blocks_pipelines.php" /> 
+	<pipeline nom="affiche_auteurs_interventions" inclure="blocks_pipelines.php" /> 
+	<pipeline nom="optimiser_base_disparus" inclure="blocks_pipelines.php" />
+
+	<!-- Pipeline de plugins -->
+	<pipeline nom="compositions_declarer_heritage" inclure="blocks_pipelines.php" />
+
+	<menu nom="blocks" titre="block:titre_blocks" parent="menu_edition" icone="images/block-16.png" action="blocks" />
+
+	<chemin path="squelettes" type='public' />
+	<chemin path="" />
+	
+</paquet>
