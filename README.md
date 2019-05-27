@@ -4,6 +4,10 @@ Objet éditorial souple et générique lié à une composition HTML et CSS
 ## Prérequis
 * **SPIP 3.3**
 * Saisies pour formulaires ≥ 3.18.10,
+* Compositions
 * Rang sur les auteurs ≥ 1.0.0,
 * CVT Upload ≥ 1.16.0, 
 * Rôles de documents ≥ 1.2.23
+
+## Configuration
+Vous devez aller dans la page de configuration du plgin Compositions et activer l'utilisation des compostions sur les blocs.
