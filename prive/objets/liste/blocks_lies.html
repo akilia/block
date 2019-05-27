@@ -11,7 +11,7 @@ a mis a jour la valeur avec la page reelle]
 	<table class="spip liste">
 	[<caption><strong class="caption">(#ENV*{titre,#GRAND_TOTAL|singulier_ou_pluriel{block:info_1_block,block:info_nb_blocks}})</strong></caption>]
 		<tbody>
-		<BOUCLE_liste_blocks(BLOCKS){tout}{objet=#ENV{objet}}{id_objet=#ENV{id_objet}}{id_block IN #GET{selection}}{par rang_lien,multi titre}{statut?}{pagination #ENV{nb,10} blockl}>
+		<BOUCLE_liste_blocks(BLOCKS){tout}{objet=#ENV{objet}}{id_objet=#ENV{id_objet}}{id_block IN #GET{selection}}{par rang_lien, id_block}{statut?}{pagination #ENV{nb,10} blockl}>
 			<tr class="[(#COMPTEUR_BOUCLE|alterner{row_odd,row_even})][ (#EXPOSE|unique)][ (#TITRE**|extraire_multi|initiale|=={#ENV{i}}|?{on}|unique)][(#ID_BLOCK|=={#ENV{id_lien_ajoute}}|oui)append]" data-lien="block/#ID_BLOCK" data-rang="#RANG_LIEN">
 				#SET{rang,#RANG_LIEN}#SET{last,#ID_BLOCK}
 				<td class='rang' style="padding: 0;">
