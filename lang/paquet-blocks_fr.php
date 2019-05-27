@@ -8,7 +8,7 @@ if (!defined('_ECRIRE_INC_VERSION')) {
 $GLOBALS[$GLOBALS['idx_lang']] = array(
 
 	// B
-	'blocks_description' => 'Plugin lié à la notion de compostion',
+	'blocks_description' => 'Plugin lié à la notion de composition',
 	'blocks_nom' => 'Blocks',
-	'blocks_slogan' => 'Objet éditorial souple et générique lié à une composition HTML et CSS',
+	'blocks_slogan' => 'Objet éditorial permettant de composer une page à partir de blocs.',
 );
