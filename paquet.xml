@@ -1,7 +1,7 @@
 <paquet
 	prefix="blocks"
 	categorie="divers"
-	version="0.1.0"
+	version="0.1.2"
 	etat="dev"
 	compatibilite="[3.3.0-dev;3.3.*]"
 	logo="prive/themes/spip/images/blocks-64.png"
@@ -22,8 +22,6 @@
 	<necessite nom="rang_auteurs" compatibilite="[1.0.0;]" />
 	<utilise nom="composition" compatibilite="[3.7.4;]" />
 	<necessite nom="cvtupload" compatibilite="[1.16.0;]" />
-	<necessite nom="roles_documents" compatibilite="[1.2.23;]" />
-
 
 	<pipeline nom="autoriser" inclure="blocks_autorisations.php" /> 
 
@@ -31,6 +29,7 @@
 	<pipeline nom="declarer_tables_interfaces" inclure="base/blocks.php" /> 
 	<pipeline nom="declarer_tables_auxiliaires" inclure="base/blocks.php" /> 
 	<pipeline nom="affiche_milieu" inclure="blocks_pipelines.php" /> 
+	<pipeline nom="pre_insertion" inclure="blocks_pipelines.php" /> 
 	<pipeline nom="affiche_auteurs_interventions" inclure="blocks_pipelines.php" /> 
 	<pipeline nom="optimiser_base_disparus" inclure="blocks_pipelines.php" />
 

@@ -56,6 +56,19 @@ function blocks_affiche_milieu($flux) {
 	return $flux;
 }
 
+/**
+ * Par défaut, à la création d'un block, clui-ci à le statut 'publie'
+ *
+ * @pipeline pre_insertion
+ * @param  array $flux Données du pipeline
+ * @return array       Données du pipeline
+ */
+function blocks_pre_insertion($flux) {
+    if ($flux['args']['table'] == 'spip_blocks') {
+        $flux['data']['statut'] = 'publie';
+    }
+    return $flux;
+}
 
 /**
  * Ajout de liste sur la vue d'un auteur
