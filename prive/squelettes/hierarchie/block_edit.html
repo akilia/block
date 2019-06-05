@@ -1,0 +1,8 @@
+<!-- hierarchie -->
+<a href="#URL_ECRIRE{rubriques}"><:info_racine_site:></a>
+
+<BOUCLE_block(BLOCKS spip_blocks_liens){id_block}{tous}>
+&gt; <a href="#INFO_URL{#OBJET, #ID_OBJET}">#INFO_TITRE{#OBJET, #ID_OBJET}</a> &gt; <b>#TITRE</b>
+</BOUCLE_block>
+&gt; <b><:ecrire:info_sans_titre:></b>
+<//B_block>
