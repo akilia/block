@@ -124,6 +124,8 @@ function blocks_declarer_tables_auxiliaires($tables) {
 		'key' => array(
 			'PRIMARY KEY'        => 'id_block,id_objet,objet',
 			'KEY id_block'       => 'id_block',
+			'KEY id_objet'       => 'id_objet',
+			'KEY objet'          => 'objet',
 		)
 	);
 
