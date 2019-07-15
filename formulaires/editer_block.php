@@ -164,7 +164,7 @@ function formulaires_editer_block_traiter_dist($id_block = 'new', $retour = '', 
 			
 			objet_associer(array('block' => $id_block), array($objet => $id_objet));
 
-			// Compaibilité avec le plugin Composiion : ’nourrir’ le champ id_parent
+			// Compaibilité avec le plugin Composition : ’nourrir’ le champ id_parent
 			sql_updateq('spip_blocks', array('id_parent' => $id_objet), 'id_block='.intval($id_block));
 			
 			if (isset($retours['redirect'])) {
