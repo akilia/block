@@ -33,6 +33,7 @@
 	<pipeline nom="declarer_tables_interfaces" inclure="base/blocks.php" /> 
 	<pipeline nom="declarer_tables_auxiliaires" inclure="base/blocks.php" /> 
 	<pipeline nom="affiche_milieu" inclure="blocks_pipelines.php" /> 
+	<pipeline nom="objet_compte_enfants" inclure="blocks_pipelines.php" /> 
 	<pipeline nom="pre_insertion" inclure="blocks_pipelines.php" /> 
 	<pipeline nom="affiche_auteurs_interventions" inclure="blocks_pipelines.php" /> 
 	<pipeline nom="optimiser_base_disparus" inclure="blocks_pipelines.php" />

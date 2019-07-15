@@ -87,6 +87,27 @@ function blocks_affiche_auteurs_interventions($flux) {
 	return $flux;
 }
 
+
+/**
+ * Compter les enfants d'un objet
+ *
+ * @pipeline objets_compte_enfants
+ * @param  array $flux Données du pipeline
+ * @return array       Données du pipeline
+**/
+function blocks_objet_compte_enfants($flux) {
+	if ($flux['args']['objet'] == 'rubrique' and $id_rubrique = intval($flux['args']['id_objet'])) {
+		// juste les publiés ?
+		if (array_key_exists('statut', $flux['args']) and ($flux['args']['statut'] == 'publie')) {
+			$flux['data']['blocks'] = sql_countsel('spip_blocks AS B JOIN spip_blocks_liens AS L ON B.id_block=L.id_block', 'objet='.sql_quote('rubrique').' AND id_objet= ' . intval($id_rubrique) . " AND (B.statut = 'publie')");
+		} else {
+			$flux['data']['blocks'] = sql_countsel('spip_blocks AS B JOIN spip_blocks_liens AS L ON B.id_block=L.id_block', 'objet='.sql_quote('rubrique').' AND id_objet= ' . intval($id_rubrique) . " AND (B.statut = 'publie')");
+		}
+	}
+
+	return $flux;
+}
+
 /**
  * Optimiser la base de données
  *
@@ -117,6 +138,6 @@ function blocks_optimiser_base_disparus($flux) {
  * @return string       Données du pipeline
 **/
 function blocks_compositions_declarer_heritage($heritages) {
-	$heritages['block'] = 'block';
+	// $heritages['block'] = 'block';
 	return $heritages;
 }
