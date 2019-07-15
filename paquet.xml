@@ -1,7 +1,7 @@
 <paquet
 	prefix="blocks"
 	categorie="divers"
-	version="0.1.6"
+	version="0.2.0"
 	etat="dev"
 	compatibilite="[3.2.4;3.3.*]"
 	logo="prive/themes/spip/images/blocks-64.png"
@@ -35,6 +35,7 @@
 	<pipeline nom="affiche_milieu" inclure="blocks_pipelines.php" /> 
 	<pipeline nom="objet_compte_enfants" inclure="blocks_pipelines.php" /> 
 	<pipeline nom="pre_insertion" inclure="blocks_pipelines.php" /> 
+	<pipeline nom="post_edition" inclure="blocks_pipelines.php" /> 
 	<pipeline nom="affiche_auteurs_interventions" inclure="blocks_pipelines.php" /> 
 	<pipeline nom="optimiser_base_disparus" inclure="blocks_pipelines.php" />
 

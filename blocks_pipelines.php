@@ -71,6 +71,28 @@ function blocks_pre_insertion($flux) {
 }
 
 /**
+ * Gestion du statut de la rubrique parente, si le parent est bien une rubrique of course
+ *
+ * @pipeline pre_edition
+ * @param  array $flux Données du pipeline
+ * @return array       Données du pipeline
+ */
+function blocks_post_edition($flux) {
+    if ($flux['args']['table'] == 'spip_blocks' and $flux['args']['action'] =='instituer') {
+    	$id_objet = $flux['args']['id_objet'];
+        $parent = sql_getfetsel('objet', 'spip_blocks_liens', 'id_block='.intval($id_objet));
+        
+        if ($parent == 'rubrique') {
+        	$id_rubrique = sql_getfetsel('id_objet', 'spip_blocks_liens', 'id_block='.intval($id_objet));
+        	$modifs['statut'] = $flux['data']['statut'];
+        	$statut_ancien_rubrique = sql_getfetsel('statut', 'spip_rubriques', 'id_rubrique='.intval($id_rubrique));
+        	calculer_rubriques_if($id_rubrique, $modifs, $statut_ancien_rubrique);
+        }
+    }
+    return $flux;
+}
+
+/**
  * Ajout de liste sur la vue d'un auteur
  *
  * @pipeline affiche_auteurs_interventions
