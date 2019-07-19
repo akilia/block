@@ -38,6 +38,11 @@ function blocks_affiche_milieu($flux) {
 			}
 		}
 
+		// si c'est une rubique et qu'il n'est pas autorise de publier dans une rurbique, on sot
+		if ($e['type'] == 'rubrique' and !autoriser('creerblockdans', 'rubrique', $flux['args']['id_rubrique'])) {
+			return $flux;
+		}
+
 		$texte .= recuperer_fond('prive/objets/editer/liens', array(
 			'table_source' => 'blocks',
 			'objet' => $e['type'],
@@ -78,7 +83,7 @@ function blocks_pre_insertion($flux) {
  * @return array       Données du pipeline
  */
 function blocks_post_edition($flux) {
-    if ($flux['args']['table'] == 'spip_blocks' and $flux['args']['action'] =='instituer') {
+    if (isset($flux['args']['table']) and $flux['args']['table'] == 'spip_blocks' and $flux['args']['action'] =='instituer') {
     	$id_objet = $flux['args']['id_objet'];
         $parent = sql_getfetsel('objet', 'spip_blocks_liens', 'id_block='.intval($id_objet));
         
@@ -162,4 +167,19 @@ function blocks_optimiser_base_disparus($flux) {
 function blocks_compositions_declarer_heritage($heritages) {
 	// $heritages['block'] = 'block';
 	return $heritages;
+}
+
+/**
+ * plugin LIM
+ * Pour la gestion des contenus par rubrique, pouvoir intégrer les blocks
+ *
+ * @pipeline lim_declare_exclus
+ * @param  string $flux Données du pipeline
+ * @return string       Données du pipeline
+**/
+function blocks_lim_declare_exclus($flux) {
+	$key = array_search('spip_blocks', $flux);
+	unset($flux[$key]);
+	
+	return $flux;
 }

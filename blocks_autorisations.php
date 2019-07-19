@@ -111,3 +111,16 @@ function autoriser_block_supprimer_dist($faire, $type, $id, $qui, $opt) {
 function autoriser_associerblocks_dist($faire, $type, $id, $qui, $opt) {
 	return $qui['statut'] == '0minirezo' and !$qui['restreint'];
 }
+
+
+/* Compat plugin LIM */
+if (!function_exists('autoriser_associerblocks') AND test_plugin_actif('lim')) {
+	function autoriser_associerblocks($faire, $type, $id, $qui, $opt) {
+		$quelles_rubriques = lire_config('lim_rubriques/block');
+		is_null($quelles_rubriques) ? $lim_rub = true : $lim_rub = !in_array($id,$quelles_rubriques);
+ 
+		return
+			$lim_rub
+			AND autoriser_associerblocks_dist($faire, $type, $id, $qui, $opt);
+	}
+}
