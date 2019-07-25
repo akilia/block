@@ -165,13 +165,15 @@ function blocks_optimiser_base_disparus($flux) {
  * @return string       Données du pipeline
 **/
 function blocks_compositions_declarer_heritage($heritages) {
-	// $heritages['block'] = 'block';
+	$heritages['block'] = 'block';
 	return $heritages;
 }
 
 /**
  * plugin LIM
  * Pour la gestion des contenus par rubrique, pouvoir intégrer les blocks
+ * objet Blocks n'ayant pas de champs 'id_rubrique', il est automatiquement mis dans la liste des objets exclus. On le retire de la liste.
+ * pour des objets avec liaisons on utilise l'autorisation 'associerblocks'
  *
  * @pipeline lim_declare_exclus
  * @param  string $flux Données du pipeline
