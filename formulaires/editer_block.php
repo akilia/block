@@ -181,12 +181,8 @@ function formulaires_editer_block_traiter_dist($id_block = 'new', $retour = '', 
 		// charger la fonction de chargement de document du plugin Medias
 		$ajouter_documents = charger_fonction('ajouter_documents', 'action');
 		foreach ($fichiers as $key => $value) {
+			$fichiers[$key][0]['mode'] = 'logoon';
 			$id_doc = $ajouter_documents('new', $fichiers[$key], 'block', $id_block, 'auto');
-			// grosse astuce : ajouter le name de l'upload dans le champ role. Ainsi on peut identifier chaque document et ensuite le faire apparaitre dans le bon fieldset dans la vue de l'objet (et en mode edition).
-			if ($id_doc) {
-				$mov = sql_delete('spip_documents_liens', "id_objet=".intval($id_block)." AND objet='block' AND role=".sql_quote($key));
-				$res = sql_updateq('spip_documents_liens', array('role' => $key), "id_document=".intval($id_doc[0])." AND id_objet=".intval($id_block)." AND objet='block'");
-			}
 		}
 	}
 

@@ -1,9 +1,9 @@
 <paquet
 	prefix="blocks"
 	categorie="divers"
-	version="0.3.1"
+	version="0.4.0"
 	etat="dev"
-	compatibilite="[3.2.4;3.3.*]"
+	compatibilite="[3.3.0-dev;3.3.*]"
 	logo="prive/themes/spip/images/blocks-64.png"
 	documentation=""
 	schema="1.0.0" 

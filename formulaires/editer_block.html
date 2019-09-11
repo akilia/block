@@ -6,7 +6,7 @@
 	<form method="post" action="#ENV{action}" enctype="multipart/form-data"><div>
 		#ACTION_FORMULAIRE{#ENV{action}}
 		<input type="hidden" name="id_block" value="#ENV{id_block}" />
-		<input type="hidden" name="compo" value="#ENV{compo}" />
+		<input type="hidden" name="compo" value="#ENV{compo, block}" />
 
 		[(#AUTORISER{webmestre}|oui)
 			<fieldset>
@@ -41,7 +41,7 @@
 		
 		<div class="editer-groupe">
 
-			<INCLURE{fond=formulaires/inc-doc_joint,env, nom_input=logo, role=logo, label=<:block:champ_logo_label:>, mime='image_web', objet=block, id_objet=#ID_BLOCK}>
+			<INCLURE{fond=formulaires/inc-doc_joint,env, nom_input=logo, mode=logoon, label=<:block:champ_logo_label:>, mime='image_web', objet=block, id_objet=#ID_BLOCK}>
 
 			[(#SAISIE{input, titre, obligatoire=oui, label=<:block:champ_titre_label:>})]
 			<div class="gauche" style='margin:-10px 0 1em; padding-left: 140px;'>
