@@ -83,15 +83,18 @@ function blocks_pre_insertion($flux) {
  * @return array       Données du pipeline
  */
 function blocks_post_edition($flux) {
-    if (isset($flux['args']['table']) and $flux['args']['table'] == 'spip_blocks' and $flux['args']['action'] =='instituer') {
+    if (isset($flux['args']['table']) 
+    	and $flux['args']['table'] == 'spip_blocks'
+    	and $flux['args']['action'] =='instituer') {
+
     	$id_objet = $flux['args']['id_objet'];
-        $parent = sql_getfetsel('objet', 'spip_blocks_liens', 'id_block='.intval($id_objet));
+        $id_rubrique = sql_getfetsel('id_objet', 'spip_blocks_liens', 'id_block='.intval($id_objet).' AND objet='.sql_quote('rubrique'));
         
-        if ($parent == 'rubrique') {
-        	$id_rubrique = sql_getfetsel('id_objet', 'spip_blocks_liens', 'id_block='.intval($id_objet));
-        	$modifs['statut'] = $flux['data']['statut'];
+        if ($id_rubrique) {
+        	$modifs['statut'] = 'publie';
         	$statut_ancien_rubrique = sql_getfetsel('statut', 'spip_rubriques', 'id_rubrique='.intval($id_rubrique));
-        	calculer_rubriques_if($id_rubrique, $modifs, $statut_ancien_rubrique);
+        	include_spip('inc/rubriques');
+        	$res = calculer_rubriques_if($id_rubrique, $modifs, $statut_ancien_rubrique);
         }
     }
     return $flux;
@@ -170,9 +173,9 @@ function blocks_compositions_declarer_heritage($heritages) {
 }
 
 /**
- * plugin LIM
- * Pour la gestion des contenus par rubrique, pouvoir intégrer les blocks
- * objet Blocks n'ayant pas de champs 'id_rubrique', il est automatiquement mis dans la liste des objets exclus. On le retire de la liste.
+ * Compatibilité plugin LIM
+ * Pour la gestion des contenus par rubrique, pouvoir intégrer les blocks.
+ * En effet Blocks n'ayant pas de champs 'id_rubrique', il est automatiquement exclus. On l'enlève de la liste des exclus.
  * pour des objets avec liaisons on utilise l'autorisation 'associerblocks'
  *
  * @pipeline lim_declare_exclus
