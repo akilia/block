@@ -20,7 +20,7 @@ a mis a jour la valeur avec la page reelle]
 					>[(#GET{rang}|>{1}|?{&uarr;,'#'})]</button>]
 				</td>
 				<td class="statut">[(#STATUT|puce_statut{block})]</td> 
-				<td class="titre"[(#LOGO_BLOCK_NORMAL|non)colspan='2']><a href="[(#ID_BLOCK|generer_url_entite{block})]">[(#GET{rang}|?{#GET{rang}}). ]#TITRE[ ((#ID_BLOCK|lien_compter) sous-blocs)]</a></td>
+				<td class="titre"[(#LOGO_BLOCK_NORMAL|non)colspan='2']><a href="[(#ID_BLOCK|generer_url_entite{block})]">[(#GET{rang}|?{#GET{rang}}). ][(#TITRE|textebrut)][<span class="soustitre">(#SOUSTITRE)</span>][ ((#ID_BLOCK|lien_compter) sous-blocs)]</a></td>
 				[<td class='logo'>(#LOGO_BLOCK_NORMAL|image_reduire{60,40})</td>]
 				<td class="action">
 					[(#ENV{editable}|oui)
