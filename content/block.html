@@ -3,7 +3,7 @@
 	[<div class="(#CONTAINER_CLASS)">]
 		[(#MASQUER_TITRE|=={non}|oui)<h2>#TITRE</h2>]
 		[(#TEXTE)]
-		[<a href="#BOUTON_URL"[ class="(#BOUTON_CLASS)"]>(#BOUTON_TITRE)</a>]
+		[<a href="#BTN_LIEN"[ class="(#BTN_CLASS)"]>(#BTN_TITRE)</a>]
 		[(#ENFANTS|=={on}|oui)
 			<INCLURE{fond=content/inc-blocks-enfants, env, objet=block, id_objet=#ID_BLOCK}>
 		]

@@ -12,9 +12,9 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'ajouter_lien_block' => 'Ajouter',
 
 	// C
-	'champ_bouton_class_label' => 'Class sur le lien',
-	'champ_bouton_lien_label' => 'Lien (URL)',
-	'champ_bouton_titre_label' => 'Label',
+	'champ_btn_class_label' => 'Class sur le lien',
+	'champ_btn_lien_label' => 'Lien (URL)',
+	'champ_btn_titre_label' => 'Label',
 	'champ_block_element_label' => 'Elément HTML',
 	'champ_block_element_explication' => 'Si laissé vide, pas de balise englobante',
 	'champ_enfants_label' => 'Bloc parent ?',
@@ -37,7 +37,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'info_nb_blocks' => '@nb@ blocs',
 
 	// L
-	'legende_ajout_bouton' => 'Ajouter un bouton',
+	'legende_ajout_btn' => 'Ajouter un bouton',
 	'legende_config_block' => 'Options de déclaration de la balise englobante',
 	'legende_enfants' => 'Ce bloc peut-il contenir des blocs enfants ?',
 	'legende_layout' => 'Option de déclaration du &lt;div&gt; conteneur',

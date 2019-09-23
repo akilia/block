@@ -32,6 +32,13 @@ function blocks_upgrade($nom_meta_base_version, $version_cible) {
 		array('sql_alter',"TABLE spip_blocks ADD  `bouton_class` VARCHAR(255) NOT NULL DEFAULT '' AFTER bouton_lien"),
 	);
 
+	/* nom des champs 'bouton' deviennet 'btn' :  plus international */
+	$maj['1.0.2'] = array(
+		array('sql_alter',"TABLE spip_blocks CHANGE  `bouton_titre` `btn_titre` text NOT NULL DEFAULT ''"),
+		array('sql_alter',"TABLE spip_blocks CHANGE  `bouton_lien` `btn_lien` text NOT NULL DEFAULT ''"),
+		array('sql_alter',"TABLE spip_blocks CHANGE  `bouton_class` `btn_class` varchar(255) NOT NULL DEFAULT ''"),
+	);
+
 	include_spip('base/upgrade');
 	maj_plugin($nom_meta_base_version, $version_cible, $maj);
 }
