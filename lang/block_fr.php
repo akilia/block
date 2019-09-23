@@ -12,6 +12,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'ajouter_lien_block' => 'Ajouter',
 
 	// C
+	'champ_bouton_class_label' => 'Class sur le lien',
 	'champ_bouton_lien_label' => 'Lien (URL)',
 	'champ_bouton_titre_label' => 'Label',
 	'champ_block_element_label' => 'Elément HTML',

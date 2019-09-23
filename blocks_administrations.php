@@ -28,6 +28,10 @@ function blocks_upgrade($nom_meta_base_version, $version_cible) {
 
 	$maj['create'] = array(array('maj_tables', array('spip_blocks', 'spip_blocks_liens')));
 
+	$maj['1.0.1'] = array(
+		array('sql_alter',"TABLE spip_blocks ADD  `bouton_class` VARCHAR(255) NOT NULL DEFAULT '' AFTER bouton_lien"),
+	);
+
 	include_spip('base/upgrade');
 	maj_plugin($nom_meta_base_version, $version_cible, $maj);
 }

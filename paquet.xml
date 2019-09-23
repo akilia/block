@@ -1,12 +1,12 @@
 <paquet
 	prefix="blocks"
 	categorie="divers"
-	version="0.4.1"
+	version="0.4.2"
 	etat="dev"
 	compatibilite="[3.3.0-dev;3.3.*]"
 	logo="prive/themes/spip/images/blocks-64.png"
 	documentation=""
-	schema="1.0.0" 
+	schema="1.0.1" 
 >
 	<!--
 		Paquet généré le 2019-04-16 12:36:02
