@@ -52,7 +52,7 @@
 			[(#SAISIE{input, soustitre, label=<:block:champ_soustitre_label:>})]
 
 			[(#SAISIE{textarea, texte, label=<:block:champ_texte_label:>,
-				conteneur_class=pleine_largeur, class=inserer_barre_forum, rows=10})]
+				conteneur_class=pleine_largeur, class=inserer_barre_edition, rows=10})]
 		</div>
 
 		[(#COMPO|composition_configuration{'block'}|table_valeur{fieldset_mots}|=={oui}|oui)
@@ -60,12 +60,12 @@
 			#SET{name, #INFO_TITRE{groupe_mot, #GET{id_groupe}}|slugify}
 			
 			<fieldset>
-				<legend><:block:legende_liste_mots:></legend>
+				<legend>#INFO_TITRE{groupe_mot, #GET{id_groupe}}</legend>
 				[(#SAISIE{checkbox, #GET{name}, label=Choisir, datas=[(#GET{id_groupe}|motsdf_liste_mots)]})]
 			</fieldset>
 		]
-		
-		[(#COMPO|composition_configuration{'block'}|table_valeur{fieldset_btn}|!={non}|oui)
+
+		[(#COMPO|composition_configuration{'block'}|table_valeur{fieldset_btn}|=={oui}|oui)
 			<fieldset>
 				<legend><:block:legende_ajout_btn:></legend>
 				<div class="editer-groupe">

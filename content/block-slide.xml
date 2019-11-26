@@ -2,5 +2,4 @@
 	<nom>Block Slide</nom>
 	<description>Composition block Slide pour un Swiper</description>
 	<icon>images/objet-simple.png</icon>
-	<configuration>fieldset_bouton:non</configuration>
 </composition>

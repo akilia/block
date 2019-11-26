@@ -2,5 +2,4 @@
 	<nom>Block Icone</nom>
 	<description>Composition block icone</description>
 	<icon>images/objet-liste-contenus.png</icon>
-	<configuration>fieldset_bouton:non</configuration>
 </composition>

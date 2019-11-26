@@ -81,7 +81,7 @@ function formulaires_editer_block_charger_dist($id_block = 'new', $retour = '', 
 		$valeurs['block_element'] = 'div';
 	}
 
-	// Récupérer la compo : permete ensuite de lire le tag  xml 'configuration' pour savoir si il y a des champs à masquer
+	// Récupérer la compo dans le tag  xml 'configuration' pour savoir si il y a des champs à prendre en compte (mots-clés et  boutons pour l'instant)
 	$compo = compositions_determiner('block', $id_block);
 	$valeurs['compo'] = $compo;
 
