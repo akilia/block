@@ -39,6 +39,11 @@ function blocks_upgrade($nom_meta_base_version, $version_cible) {
 		array('sql_alter',"TABLE spip_blocks CHANGE  `bouton_class` `btn_class` varchar(255) NOT NULL DEFAULT ''"),
 	);
 
+	/* toujours plus international */
+	$maj['1.0.3'] = array(
+		array('sql_alter',"TABLE spip_blocks CHANGE  `btn_lien` `btn_url` text NOT NULL DEFAULT ''"),
+	);
+
 	include_spip('base/upgrade');
 	maj_plugin($nom_meta_base_version, $version_cible, $maj);
 }

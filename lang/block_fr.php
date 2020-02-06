@@ -13,7 +13,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 
 	// C
 	'champ_btn_class_label' => 'Class sur le lien',
-	'champ_btn_lien_label' => 'Lien (URL)',
+	'champ_btn_url_label' => 'Lien (URL)',
 	'champ_btn_titre_label' => 'Label',
 	'champ_block_element_label' => 'Elément HTML',
 	'champ_block_element_explication' => 'Si laissé vide, pas de balise englobante',

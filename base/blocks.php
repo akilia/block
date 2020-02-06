@@ -27,7 +27,7 @@ function blocks_declarer_tables_interfaces($interfaces) {
 
 	$interfaces['table_des_tables']['blocks'] = 'blocks';
 
-	$interfaces['table_des_traitements']['BTN_LIEN'][] = 'traiter_lien_implicite(%s)';
+	$interfaces['table_des_traitements']['BTN_URL'][] = 'traiter_lien_implicite(%s)';
 
 	return $interfaces;
 }
@@ -60,7 +60,7 @@ function blocks_declarer_tables_objets_sql($tables) {
 			'soustitre'          => 'text NOT NULL DEFAULT ""',
 			'texte'              => 'text NOT NULL DEFAULT ""',
 			'btn_titre'          => 'text NOT NULL DEFAULT ""',
-			'btn_lien'           => 'text NOT NULL DEFAULT ""',
+			'btn_url'            => 'text NOT NULL DEFAULT ""',
 			'btn_class'          => 'varchar(255) NOT NULL DEFAULT ""',
 			'statut'             => 'varchar(20)  DEFAULT "0" NOT NULL',
 			'lang'               => 'VARCHAR(10) NOT NULL DEFAULT ""',
@@ -76,7 +76,7 @@ function blocks_declarer_tables_objets_sql($tables) {
 		),
 		'titre' => 'titre AS titre, lang AS lang',
 		 #'date' => '',
-		'champs_editables'  => array('block_element', 'block_id', 'block_class', 'container_class', 'enfants', 'titre', 'masquer_titre', 'soustitre', 'texte', 'btn_titre', 'btn_lien', 'btn_class'),
+		'champs_editables'  => array('block_element', 'block_id', 'block_class', 'container_class', 'enfants', 'titre', 'masquer_titre', 'soustitre', 'texte', 'btn_titre', 'btn_url', 'btn_class'),
 		'champs_versionnes' => array('titre', 'soustitre', 'texte', 'btn_titre'),
 		'rechercher_champs' => array("titre" => 8),
 		'tables_jointures'  => array('spip_blocks_liens'),
