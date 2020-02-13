@@ -168,7 +168,7 @@ function blocks_optimiser_base_disparus($flux) {
  * @return string       Données du pipeline
 **/
 function blocks_compositions_declarer_heritage($heritages) {
-	$heritages['block'] = 'block';
+	// $heritages['block'] = 'block';
 	return $heritages;
 }
 
