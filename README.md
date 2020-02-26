@@ -15,21 +15,23 @@ Une feuille de style pour la gestion des CSS.
 Vous devez aller dans la page de configuration du plugin Compositions et activer l'utilisation des compositions sur les blocs.
 
 ## Les principes qui ont guidés la conception de ce plugin
-L'idée est venue lors de la réalisation de plusieurs sites avec Jordan : on se retrouvait souvent avec une page d'accueil composé de section courte, avec le plus souvent un titre, un texte et un lien vers une autre page (un bouton)
-Ces sections avaient toutes un look différents.
+L'idée est venue lors de la réalisation de plusieurs sites avec Jordan : on se retrouvait souvent avec une page d'accueil composée de sections courtes, et juste un titre, un texte et un lien vers une autre page (un bouton).
 
+Ces sections avaient toutes un look différent.
+
+### Mise en place
 L'idée première était d'offrir au client la possibilité de modifier/corriger le texte d'une section.
 
-Dans un deuxième temps, il falait proposer un système au créateur du site ainsi qu'aux futurs rédacteurs la possibilité de créer de nouvelles sections avec Block. Là, la tâche est plus ardue puisque :
+Dans un deuxième temps, il falait proposer un système au créateur du site ainsi qu'aux futurs rédacteurs la possibilité de créer de nouvelles sections. Là, la tâche est plus ardue puisque :
 
 * les sections ayant chacune un look différent, il faut pouvoir gérer simplement le markup HTML (tags + classes CSS) de celles-ci.
 * il faut pouvoir réeordonner un groupe de blocs.
 * il faut pouvoir réutiliser un même bloc (look + contenu ou juste look)
 
 Pour cela, trois solutions ont été envisagés :
-1- créer un bloc ad-hoc depuis l'interface : il faut alors être Webmestre (statut spécial SPIP) et avoir accès aux styles du site pour connaître les classes qui seront utiles.
-2- compositions de blocs prêtent à l'emploi : le créateur du site enregistre des compositions spécifiques au site (markup HTML). Il suffit au rédacteur de choisir la composition dans l'interface puis de renseigner le contenu.
-3- réutilisation d'un bloc : depuis l'interface, le rdacteur peut choisir un bloc existant. 
+1. créer un bloc ad-hoc depuis l'interface : il faut alors être Webmestre (statut spécial SPIP) et avoir accès aux styles du site pour connaître les classes qui seront utiles.
+2. compositions de blocs prêtent à l'emploi : le créateur du site enregistre des compositions spécifiques au site (markup HTML). Il suffit au rédacteur de choisir la composition dans l'interface puis de renseigner le contenu.
+3. réutilisation d'un bloc : depuis l'interface, le rdacteur peut choisir un bloc existant. 
 
 ## les compositions
 ### Les compositions de base
