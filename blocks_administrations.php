@@ -44,8 +44,25 @@ function blocks_upgrade($nom_meta_base_version, $version_cible) {
 		array('sql_alter',"TABLE spip_blocks CHANGE  `btn_lien` `btn_url` text NOT NULL DEFAULT ''"),
 	);
 
+	/* Initialisation du plugin : pourvoir ajouter des blocks au minimum sur des rubriques */
+	$maj['1.0.4'] = array(
+		array('blocks_init_metas')
+	);
+
+	
+
 	include_spip('base/upgrade');
 	maj_plugin($nom_meta_base_version, $version_cible, $maj);
+}
+
+
+/**
+ * Depuis la possibilité de gérer les objets sur lesqueles activer Block
+ * initialisation du plusgin pour gérer au moins les rubriques
+ *
+**/
+function blocks_init_metas() {
+	ecrire_config("blocks/objets", array('spip_rubriques'));
 }
 
 

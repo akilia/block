@@ -24,11 +24,13 @@ if (!defined('_ECRIRE_INC_VERSION')) {
 function blocks_affiche_milieu($flux) {
 	$texte = '';
 	$e = trouver_objet_exec($flux['args']['exec']);
-	// debug($e);
-	// debug($flux['args']);
 
-	// blocks sur les rubriques et blocs
-	if (!$e['edition'] and in_array($e['type'], array('rubrique', 'block'))) {
+	// sur quels objets activer les blocks
+	include_spip('base/objets');
+	$tables = array_filter(lire_config('blocks/objets'));
+	$objets = array_map('objet_type', $tables);
+
+	if (!$e['edition'] and $objets and in_array($e['type'], $objets)) {
 
 		// si c'est un bloc et qu'il n'est pas déclaré comme pouvant avoir des sous-blocks, on sort
 		if ($e['type'] == 'block') {
@@ -38,7 +40,7 @@ function blocks_affiche_milieu($flux) {
 			}
 		}
 
-		// si c'est une rubique et qu'il n'est pas autorise de publier dans une rurbique, on sot
+		// si c'est une rubique et qu'il n'est pas autorise de publier dans une rubrique, on sort
 		if ($e['type'] == 'rubrique' and !autoriser('creerblockdans', 'rubrique', $flux['args']['id_rubrique'])) {
 			return $flux;
 		}

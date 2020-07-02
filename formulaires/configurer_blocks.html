@@ -9,6 +9,13 @@
 	<div>
 		#ACTION_FORMULAIRE{#ENV{action}}
 
+		#SET{name,objets}#SET{erreurs,#ENV**{erreurs}|table_valeur{#GET{name}}}
+		<div class="editer long_label editer_[(#GET{name})][ (#GET{obli})][ (#GET{erreurs}|oui)erreur]">
+			<label>Activer l’utilisation des blocs pour les contenus :</label>[
+			<span class='erreur_message'>(#GET{erreurs})</span>
+			]#INCLURE{fond=formulaires/inc-choisir-objets,name=#GET{name},selected=#ENV**{#GET{name}},exclus=spip_documents}
+		</div>
+
 		<input type="hidden" name="_meta_casier" value="blocks" />
 		<p class="boutons"><span class="image_loading">&nbsp;</span><input type="submit" class="submit" value="<:bouton_enregistrer:>" /></p>
 	</div>
