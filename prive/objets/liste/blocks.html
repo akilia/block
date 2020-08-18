@@ -8,7 +8,7 @@
 <table class="spip liste">
 	[<caption><strong class="caption">(#ENV*{titre,#GRAND_TOTAL|singulier_ou_pluriel{block:info_1_block,block:info_nb_blocks}})</strong></caption>]
 	<tbody>
-	<BOUCLE_liste_blocks(BLOCKS){id_block?}{id_parent?}{id_mot?}{id_auteur?}{where?}{statut?}{recherche?}{tri #ENV{par,num titre},#GET{defaut_tri}}{par titre}{pagination #ENV{nb,10}}>
+	<BOUCLE_liste_blocks(BLOCKS){id_block?}{id_parent?}{id_mot?}{id_objet?}{objet?}{where?}{statut?}{recherche?}{tri #ENV{par,num titre},#GET{defaut_tri}}{par titre}{pagination #ENV{nb,10}}>
 		<tr class="[(#COMPTEUR_BOUCLE|alterner{row_odd,row_even})]">
 			<td class="statut">[(#STATUT|puce_statut{block,#ID_BLOCK})]</td> 
 			<td class="titre principale"[(#LOGO_BLOCK_NORMAL|non)colspan='2']><a href="[(#ID_BLOCK|generer_url_entite{block})]">#TITRE</a></td>
