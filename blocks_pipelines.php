@@ -64,7 +64,7 @@ function blocks_affiche_milieu($flux) {
 }
 
 /**
- * Par défaut, à la création d'un block, clui-ci à le statut 'publie'
+ * Par défaut, à la création d'un block, celui-ci à le statut 'publie'
  *
  * @pipeline pre_insertion
  * @param  array $flux Données du pipeline
@@ -188,5 +188,33 @@ function blocks_lim_declare_exclus($flux) {
 	$key = array_search('spip_blocks', $flux);
 	unset($flux[$key]);
 	
+	return $flux;
+}
+
+
+/**
+ * Compatibilité plugin MOTSDF
+ * Afficher un groupe de mots-clef dans un block si la partie .xml du Block contient la déclaration de l'id_groupe voulu
+ *
+ * @pipeline motsdf_activer_objet
+ * @param  array $flux Données du pipeline
+ * @return array       Données du pipeline
+**/
+function blocks_motsdf_activer_objet($flux) {
+	$exec =  _request('exec');
+	$objets = $flux['args']['objets'];
+
+	if ($objets == 'blocks' AND $exec == 'block_edit') {
+		$id_block = _request('id_block');
+		$compo = compositions_determiner('block', $id_block);
+		$config_compo = composition_configuration($compo, 'block');
+		if (isset($config_compo['fieldset_mots']) and $config_compo['fieldset_mots'] == 'oui' and isset($config_compo['id_groupe'])) {
+			$id_groupe = $config_compo['id_groupe'];
+			$select = $flux['args']['select'];
+			$flux['data'] = sql_allfetsel($select, 'spip_groupes_mots', 'id_groupe='.intval($id_groupe));
+		}
+		debug($flux);
+	}
+
 	return $flux;
 }

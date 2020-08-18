@@ -55,15 +55,6 @@
 				conteneur_class=pleine_largeur, class=inserer_barre_edition, rows=10})]
 		</div>
 
-		[(#COMPO|composition_configuration{'block'}|table_valeur{fieldset_mots}|=={oui}|oui)
-		#SET{id_groupe, #COMPO|composition_configuration{'block'}|table_valeur{id_groupe}}
-			#SET{name, #INFO_TITRE{groupe_mot, #GET{id_groupe}}|slugify}
-			
-			<fieldset>
-				<legend>#INFO_TITRE{groupe_mot, #GET{id_groupe}}</legend>
-				[(#SAISIE{checkbox, #GET{name}, label=Choisir, datas=[(#GET{id_groupe}|motsdf_liste_mots)]})]
-			</fieldset>
-		]
 
 		[(#COMPO|composition_configuration{'block'}|table_valeur{fieldset_btn}|=={oui}|oui)
 			<fieldset>
