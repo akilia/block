@@ -193,8 +193,9 @@ function blocks_lim_declare_exclus($flux) {
 
 
 /**
- * Compatibilité plugin MOTSDF
- * Afficher un groupe de mots-clef dans un block si la partie .xml du Block contient la déclaration de l'id_groupe voulu
+ * Compatibilité plugin MOTSDF : pouvoir afficher un groupe de mots-clef dans un block.
+ * Pour cela, la partie .xml de la composition du block doit contenir la déclaration de l'id_groupe voulu.
+ * La forme de l'affichage (radio, checkbox, etc.) reste dans le config du groupe de mots-clés. 
  *
  * @pipeline motsdf_activer_objet
  * @param  array $flux Données du pipeline
@@ -213,7 +214,6 @@ function blocks_motsdf_activer_objet($flux) {
 			$select = $flux['args']['select'];
 			$flux['data'] = sql_allfetsel($select, 'spip_groupes_mots', 'id_groupe='.intval($id_groupe));
 		}
-		debug($flux);
 	}
 
 	return $flux;
