@@ -49,8 +49,12 @@ En grattant un peu le code du plugin Compositions, je me suis aperçu qu'il éta
 
 Je m'en sert pour personnaliser le formulaire "Block" du rédacteur.
 
-Ainsi pour une composition en particulier, il est possible de faire apparaître de nouveaux *Fieldset*
+Ainsi pour une composition en particulier, il est possible de faire apparaître de nouveaux *Fieldset*.
+Ces fieldsets sont déjà là, mais désactivés par défaut.
 
+
+* Fieldset Bouton 
+* Fieldset Mots clés (nécéssite le plugin MotsDF)
 
 **Exemple :**
 Préambule : l'exemple ci-dessous nécessite de d'avoir chargé le plugin Motsdf : Mots dans Formulaire.
