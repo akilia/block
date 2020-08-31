@@ -1,4 +1,4 @@
+[(#REM)  Inspiré de /prive/squelettes/extra/articles.html]
 <BOUCLE_extra(BLOCKS spip_blocks_liens){id_block}>
-#SET{where,#VAL{blocks.id_block!=}|concat{#ID_BLOCK}}
-	<INCLURE{fond=prive/objets/liste/blocks, id_objet=#ID_OBJET, objet=#OBJET, where=#GET{where}, ajax}>
+	<INCLURE{fond=prive/objets/liste/blocks, id=#ID_BLOCK, id_objet=#ID_OBJET, objet=#OBJET, where=#GET{where}, ajax}>
 </BOUCLE_extra>
