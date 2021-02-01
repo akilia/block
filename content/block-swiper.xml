@@ -1,6 +1,6 @@
 <composition>
-	<nom>Block Swiper</nom>
-	<description>Composition block Swiper</description>
+	<nom>Carrousel</nom>
+	<description>Affiche les items du bloc dans un carrousel. Par défaut, les items sont les illustrations du bloc.</description>
 	<icon>images/objet-cours.png</icon>
 	<branche type="block" composition="slide" />
 </composition>

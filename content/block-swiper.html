@@ -1,7 +1,10 @@
 <BOUCLE_swiper(BLOCKS){id_block}>
-[<(#BLOCK_ELEMENT)[ id="(#BLOCK_ID)" ]class="swiper-container[ (#BLOCK_CLASS)]">]
-	<div class="swiper-wrapper">
-		<INCLURE{fond=content/inc-blocks-enfants, env, id_objet=#ID_BLOCK, objet=block}>
+[<(#BLOCK_ELEMENT)[ id="(#BLOCK_ID)" ] class="swiper-container[ (#BLOCK_CLASS)]">]
+	<div class="swiper-container">
+		<div class="swiper-wrapper">
+			<INCLURE{fond=inclure/carrousel-slides, env}>
+		</div>
+		<div class="swiper-pagination"></div>
 	</div>
 [</(#BLOCK_ELEMENT)>]
 </BOUCLE_swiper>
