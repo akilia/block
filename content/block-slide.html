@@ -1,12 +1,12 @@
 <BOUCLE_slide(BLOCKS){id_block}>
 [<(#BLOCK_ELEMENT)[ id="(#BLOCK_ID)" ] class="swiper-slide[ (#BLOCK_CLASS)]">]
-	<BOUCLE_background(DOCUMENTS){id_block}{role=document}>
+	<BOUCLE_background(DOCUMENTS){id_block}>
 	<img src="#FICHIER" srcset="#FICHIER 600w" sizes="100vw" alt="" class="headers__background">
 	</BOUCLE_background>
 
 	<figure [class="(#CONTAINER_CLASS)"]>
-		[<img class="hide-xs hide-sm col-md-3 push-md-1" src="(#LOGO_BLOCK|extraire_attribut{src})" alt="photo de #TITRE">]
-		<figcaption class="[(#LOGO_BLOCK|?{col-xs-12 col-sm-10 push-sm-1 col-md-5 push-md-1 mt-4,col-xs-12 col-sm-10 push-sm-1 col-md-8 push-md-2 mt-4})]">
+		[<img class="" src="(#LOGO_BLOCK|extraire_attribut{src})" alt="photo de #TITRE">]
+		<figcaption class="">
 			<h2>#TITRE</h2>
 			[<div>(#TEXTE)</div>]
 			[<a href="#BTN_URL" class="#BTN_CLASS">(#BTN_TITRE)</a>]
