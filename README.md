@@ -15,12 +15,12 @@ Une feuille de style pour la gestion des CSS.
 Vous devez aller dans la page de configuration du plugin Compositions et activer l'utilisation des compositions sur les blocs.
 
 ## Les principes qui ont guidés la conception de ce plugin
-L'idée est venue lors de la réalisation de plusieurs sites avec Jordan : on se retrouvait souvent avec une page d'accueil composée de sections courtes, et juste un titre, un texte et un lien vers une autre page (un bouton).
+L'idée est venue lors de la réalisation de plusieurs sites avec Jordan : on se retrouvait souvent avec une page d'accueil composée de sections courtes, elles-mêmes construite en général avec juste un titre, un texte et un lien vers une autre page (un bouton).
 
 Ces sections avaient toutes un look différent.
 
 ### Mise en place
-L'idée première était d'offrir au client la possibilité de modifier/corriger le texte d'une section.
+La première  chose était d'offrir aux rédacteurs du site la possibilité de modifier/corriger le texte d'une section, mais également de supprimer/désactiver/déplacer une section.
 
 Dans un deuxième temps, il falait proposer un système au créateur du site ainsi qu'aux futurs rédacteurs la possibilité de créer de nouvelles sections. Là, la tâche est plus ardue puisque :
 
