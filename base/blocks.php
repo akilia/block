@@ -27,7 +27,7 @@ function blocks_declarer_tables_interfaces($interfaces) {
 
 	$interfaces['table_des_tables']['blocks'] = 'blocks';
 
-	$interfaces['table_des_traitements']['BTN_URL'][] = 'traiter_lien_implicite(%s)';
+	$interfaces['table_des_traitements']['BTN_URL'][] = 'calculer_url(%s)';
 
 	return $interfaces;
 }
