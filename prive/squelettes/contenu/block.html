@@ -42,7 +42,7 @@
 ]
 [(#PIPELINE{affiche_enfants,[(#ARRAY{args,#ARRAY{exec,block,id_block,#ID_BLOCK,objet,block,id_objet,#ID_BLOCK},data,#GET{enfants}})]})]
 
-[(#EVAL{_AJAX}|oui)
+[(#CONST{_AJAX}|oui)
 	<script type="text/javascript">/*<!\\[CDATA\\[*/reloadExecPage('#ENV{exec}','#navigation,#chemin,#extra');/*\\]\\]>*/</script>
 ]
 </BOUCLE_block>
