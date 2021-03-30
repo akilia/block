@@ -1,6 +1,6 @@
 <composition>
-	<nom>bouton</nom>
-	<description>Bloc de base + bouton</description>
+	<nom>Bloc de base + bouton</nom>    
+	<description>Titre, soustitre, texte + Bouton (label, URL & class)</description>
 	<icon>images/composition-cours.png</icon>
 	<configuration>fieldset_btn:oui</configuration>
 </composition>
