@@ -160,8 +160,9 @@ function blocks_optimiser_base_disparus($flux) {
 
 	include_spip('action/editer_liens');
 	$flux['data'] += objet_optimiser_liens(array('block'=>'*'), '*');
+	$mydate = sql_quote(trim($flux['args']['date'], "'"));
 
-	sql_delete('spip_blocks', "statut='poubelle' AND maj < " . $flux['args']['date']);
+	sql_delete('spip_blocks', "statut='poubelle' AND maj < " . $mydate);
 
 	return $flux;
 }
