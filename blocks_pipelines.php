@@ -27,10 +27,13 @@ function blocks_affiche_milieu($flux) {
 
 	// sur quels objets activer les blocks
 	include_spip('base/objets');
-	$tables = array_filter(lire_config('blocks/objets'));
+	$tables = array_filter(lire_config('blocks/objets', array()));
 	$objets = array_map('objet_type', $tables);
 
-	if (!$e['edition'] and $objets and in_array($e['type'], $objets)) {
+	if ($e 
+		and !$e['edition']
+		and in_array($e['type'], $objets)
+	) {
 
 		// si c'est un bloc et qu'il n'est pas déclaré comme pouvant avoir des sous-blocks, on sort
 		if ($e['type'] == 'block') {
@@ -41,7 +44,9 @@ function blocks_affiche_milieu($flux) {
 		}
 
 		// si c'est une rubique et qu'il n'est pas autorise de publier dans une rubrique, on sort
-		if ($e['type'] == 'rubrique' and !autoriser('creerblockdans', 'rubrique', $flux['args']['id_rubrique'])) {
+		if ($e['type'] == 'rubrique'
+			and !autoriser('creerblockdans', 'rubrique', $flux['args']['id_rubrique'])
+		) {
 			return $flux;
 		}
 
@@ -87,7 +92,8 @@ function blocks_pre_insertion($flux) {
 function blocks_post_edition($flux) {
     if (isset($flux['args']['table']) 
     	and $flux['args']['table'] == 'spip_blocks'
-    	and $flux['args']['action'] =='instituer') {
+    	and $flux['args']['action'] =='instituer'
+    ) {
 
     	$id_objet = $flux['args']['id_objet'];
         $id_rubrique = sql_getfetsel('id_objet', 'spip_blocks_liens', 'id_block='.intval($id_objet).' AND objet='.sql_quote('rubrique'));
