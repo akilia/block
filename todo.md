@@ -1,5 +1,8 @@
 # Plugin Blocks
 
+## Changement de statut dans une rubrique
+Utiliser la fonction calculer_rubriques_if()
+
 ## Fonction Traiter
 Dans la fonction Traiter de editer_block.php, appeler la fonction ad-hoc /action/editer_block.php et faire cette fonction
 Elle devra traiter de la gestion de l'id_parent et parent
