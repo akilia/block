@@ -1,0 +1,6 @@
+<composition>
+	<nom>Bloc de base + liste mots</nom>    
+	<description>Titre, soustitre, texte + liste mots du groupe n°1</description>
+	<icon>images/composition-cours.png</icon>
+	<configuration>fieldset_mots:oui/id_groupe:1</configuration>
+</composition>

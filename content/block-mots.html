@@ -1,0 +1,15 @@
+<BOUCLE_blocks(BLOCKS){id_block}>
+[<(#BLOCK_ELEMENT)[ id="(#BLOCK_ID)"][ class="(#BLOCK_CLASS)"]>]
+	[<div class="(#CONTAINER_CLASS)">]
+		[(#MASQUER_TITRE|=={non}|oui)<h2>#TITRE</h2>]
+		[<div class='texte'>(#TEXTE)</div>]
+		[<a href="#BTN_URL"[ class="(#BTN_CLASS)"]>(#BTN_TITRE)</a>]
+		<BOUCLE_liste_mots(MOTS){id_block}{par rang, num titre, titre}>
+		<div class="">
+			[<img src="(#LOGO_MOT|extraire_attribut{src})" class=''>]
+			<a href="[(#TEXTE|textebrut)]">#TITRE</a>
+		</div>
+		</BOUCLE_liste_mots>
+	[(#CONTAINER_CLASS|oui)</div>]
+[</(#BLOCK_ELEMENT)>]
+</BOUCLE_blocks>
