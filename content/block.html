@@ -1,8 +1,12 @@
 <BOUCLE_blocks(BLOCKS){id_block}>
 [<(#BLOCK_ELEMENT)[ id="(#BLOCK_ID)"][ class="(#BLOCK_CLASS)"]>]
 	[<div class="(#CONTAINER_CLASS)">]
-		[(#MASQUER_TITRE|=={non}|oui)<h2>#TITRE</h2>]
-		[<div class="soustitre">(#SOUSTITRE)</div>]
+		[<img src="(#LOGO_BLOCK|extraire_attribut{src})" class='img-fluid'>]
+		
+		<header>
+			[(#MASQUER_TITRE|=={non}|oui)<h2>#TITRE</h2>]
+			[<div class="soustitre">(#SOUSTITRE)</div>]
+		</header>
 		[<div class='texte'>(#TEXTE)</div>]
 		[(#ENFANTS|=={on}|oui)
 			<INCLURE{fond=content/inc-blocks-enfants, env, objet=block, id_objet=#ID_BLOCK}>
