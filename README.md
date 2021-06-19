@@ -72,7 +72,7 @@ Dans le tag `<configuration>`, je renseigne deux instructions :
 1. `fieldset_mots:oui` : pour cette composition, le formulaire d'édition de bloc va proposer en plus la possibilité de liaison avec un groupe de mot clé.
 2. … et le groupe appelé est le 1 (id_groupe = 1)
 
-La syntaxe est donc la suivante :
+**Syntaxe complète :**
 ```
 <configuration>parametre:valeur</configuration>
 ou encore
