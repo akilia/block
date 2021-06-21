@@ -50,7 +50,7 @@ Le plugin Compositions, permet d'exploiter un tag *configuration* dans le fichie
 Ce tag *Configuration* est utilisé ici pour intégrer de nouveaux *Fieldset* dans le formulaire, à la demande.
 
 
-Ces fieldsets sont déjà prévu
+Des fieldsets sont déjà prévus :
 
 * Fieldset Bouton (Label, URL et class)
 * Fieldset Mots clés (liste de mots clés à sélectionner sous forme de bouton radion ou case à cocher)(nécéssite le plugin MotsDF)

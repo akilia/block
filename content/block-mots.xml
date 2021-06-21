@@ -1,6 +1,6 @@
 <composition>
 	<nom>Bloc de base + liste mots</nom>    
-	<description>Titre, soustitre, texte + liste mots du groupe n°1</description>
+	<description>Titre, soustitre, texte + choisir parmi la liste des mots du groupe n°1</description>
 	<icon>images/composition-test.png</icon>
 	<configuration>fieldset_mots:oui/id_groupe:1</configuration>
 </composition>
