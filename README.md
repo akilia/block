@@ -45,30 +45,28 @@ Voir la doc à ce propos : https://contrib.spip.net/Compositions-2-et-3
 Pour l'instant, le principe de l'héritage ne marche pas totalement. En berne donc.
 
 ### Nouvelle possibilité sur les compositions
-En grattant un peu le code du plugin Compositions, je me suis aperçu qu'il était possible d'exploiter le tag *configuration* dans le fichier XML de la composition.
+Le plugin Compositions, permet d'exploiter un tag *configuration* dans le fichier XML.
 
-Je m'en sert pour personnaliser le formulaire "Block" du rédacteur.
-
-Ainsi pour une composition en particulier, il est possible de faire apparaître de nouveaux *Fieldset*.
-Ces fieldsets sont déjà là, mais désactivés par défaut.
+Ce tag *Configuration* est utilisé ici pour intégrer de nouveaux *Fieldset* dans le formulaire, à la demande.
 
 
-* Fieldset Bouton 
-* Fieldset Mots clés (nécéssite le plugin MotsDF)
+Ces fieldsets sont déjà prévu
 
-**Exemple :**
-Préambule : l'exemple ci-dessous nécessite de d'avoir chargé le plugin Motsdf : Mots dans Formulaire.
-Son utilisation est prévue dans le plugin **Block**.
+* Fieldset Bouton (Label, URL et class)
+* Fieldset Mots clés (liste de mots clés à sélectionner sous forme de bouton radion ou case à cocher)(nécéssite le plugin MotsDF)
+
+**Exemple : ajouter dans le formulaire la saisie de la liste des mots-clés de tel groupe**
+Note : voir les fichiers  `content/block-mots.html` et `content/block-mots.xml` dans le plugin.
 
 ```
 <composition>
-	<nom>Block Image + liste de mots</nom>
-	<description>Composition Meric avec image et choix d'une liste de services</description>
-	<icon>images/objet-cours.png</icon>
+	<nom>Block de base + liste de mots</nom>
+	<description>Titre, soustitre, texte + choisir parmi la liste des mots du groupe n°1</description>
+	<icon>images/objet-test.png</icon>
 	<configuration>fieldset_mots:oui/id_groupe:1</configuration>
 </composition>
 ```
-Dans le tag `<configuration>`, je renseigne deux instructions :
+Ici, dans le tag `<configuration>`, deux paramètres sont renseignés :
 1. `fieldset_mots:oui` : pour cette composition, le formulaire d'édition de bloc va proposer en plus la possibilité de liaison avec un groupe de mot clé.
 2. … et le groupe appelé est le 1 (id_groupe = 1)
 
@@ -78,6 +76,8 @@ Dans le tag `<configuration>`, je renseigne deux instructions :
 ou encore
 <configuration>parametre1:valeur1/parametre2:valeur2</configuration>
 ```
+
+L'affichage dans la partie publique se fait via une boucle MOTS dans le squelette `content/block-mots.html` bien sûr. 
 
 
 
