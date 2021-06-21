@@ -46,7 +46,5 @@
 
 	<menu nom="blocks" titre="block:titre_blocks" parent="menu_edition" icone="images/block-16.png" action="blocks" />
 
-	<chemin path="squelettes" type='public' />
-	<chemin path="" />
 	
 </paquet>
